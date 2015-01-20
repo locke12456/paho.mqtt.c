@@ -1,7 +1,7 @@
 project(paho-mqtt)
 
 set(srcdir ${CMAKE_SOURCE_DIR}/src)
-
+SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${RELEASE_DIR}")
 add_definitions(-DOPENSSL)
 add_definitions(-DWIN32_LEAN_AND_MEAN)
 
@@ -47,3 +47,12 @@ if(WIN32)
     target_link_libraries(paho-mqtt3cs libeay32)
 	target_link_libraries(paho-mqtt3cs ssleay32)
 endif(WIN32)
+
+# Copy targets to release folder
+add_custom_command(
+	TARGET paho-mqtt3cs POST_BUILD 
+	COMMAND ${CMAKE_COMMAND} -E copy 
+		$<TARGET_FILE:paho-mqtt3cs>
+		${RELEASE_DIR}
+	COMMENT "Copying dynamic linker to output directory"
+)

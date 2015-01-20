@@ -1,7 +1,8 @@
 project(paho-mqtt)
 
-
 set(srcdir ${CMAKE_SOURCE_DIR}/src)
+
+SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${RELEASE_DIR}")
 
 file(GLOB_RECURSE SOURCE_FILES
 	${srcdir}/Clients.c
@@ -46,3 +47,11 @@ if(WIN32)
     target_link_libraries(paho-mqtt3a libeay32)
     target_link_libraries(paho-mqtt3a ssleay32)
 endif(WIN32)
+# Copy targets to release folder
+add_custom_command(
+	TARGET paho-mqtt3a POST_BUILD 
+	COMMAND ${CMAKE_COMMAND} -E copy 
+		$<TARGET_FILE:paho-mqtt3a>
+		${RELEASE_DIR}
+	COMMENT "Copying dynamic linker to output directory"
+)

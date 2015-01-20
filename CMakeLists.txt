@@ -6,6 +6,7 @@ set(CMAKE_BUILD_TYPE Debug)
 
 INCLUDE(os_env.cmake)
 
+set(RELEASE_DIR ${CMAKE_SOURCE_DIR}/paho_mqtt_c_release)
 # Set common include directories
 include_directories(${CMAKE_SOURCE_DIR}/libraries/include)
 link_directories(${LIBS_PATH}/openssl)
