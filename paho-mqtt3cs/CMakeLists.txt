@@ -31,11 +31,17 @@ file(GLOB_RECURSE SOURCE_FILES_CS
 )
 
 include_directories(${srcdir})
-
-ADD_LIBRARY(paho-mqtt3cs SHARED
-	${SOURCE_FILES}
-	${SOURCE_FILES_CS}
-)
+IF(DEFINED BUILD_STATIC)
+	ADD_LIBRARY(paho-mqtt3cs STATIC
+		${SOURCE_FILES}
+		${SOURCE_FILES_CS}
+	)
+ELSE()
+	ADD_LIBRARY(paho-mqtt3cs SHARED
+		${SOURCE_FILES}
+		${SOURCE_FILES_CS}
+	)
+endif()
 
 if(UNIX)
     target_link_libraries(paho-mqtt3cs ssl)

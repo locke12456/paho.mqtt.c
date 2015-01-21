@@ -32,10 +32,18 @@ file(GLOB_RECURSE SOURCE_FILES_A
 
 include_directories(${srcdir})
 
-ADD_LIBRARY(paho-mqtt3a SHARED
-	${SOURCE_FILES_A}
-	${SOURCE_FILES}
-)
+IF(DEFINED BUILD_STATIC)
+	ADD_LIBRARY(paho-mqtt3a STATIC
+		${SOURCE_FILES_A}
+		${SOURCE_FILES}
+	)
+ELSE()
+	ADD_LIBRARY(paho-mqtt3a SHARED
+		${SOURCE_FILES_A}
+		${SOURCE_FILES}
+	)
+endif()
+
 
 if(UNIX)
     target_link_libraries(paho-mqtt3a ssl)
