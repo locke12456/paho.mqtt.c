@@ -1,3 +1,9 @@
+if( ARM )
+	message("Configuring for ARM")
+	
+        add_definitions("-DLINUX -DLINUX32 ")
+	set(LIBS_PATH ${CMAKE_SOURCE_DIR}/libraries/lib/arm)
+else()
 if(WIN32)
     if(CMAKE_SIZEOF_VOID_P EQUAL 8)
         SET(ARCH "WIN64")
@@ -40,4 +46,5 @@ else()
 endif()
 
 
+endif(ARM)
 MESSAGE(${LIBS_PATH})

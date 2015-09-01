@@ -1,3 +1,16 @@
+# Pre-build (for - ARM corss complie)
+
+on ubuntu linux:
+
+	arm-linux :
+		apt-get install gcc-arm-linux-gnueabihf or apt-get install gcc-arm-linux-gnueabi
+	
+	copy libraries/lib/arm/* to /usr/arm-linux-gnueabihf/lib/
+
+	cmake command and make it :
+		$ cmake ../ -DARM=1 -DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc -DCMAKE_CXX_COMPILER=arm-linux-gnueabihf-g++
+		$ make
+
 # Eclipse Paho MQTT C client
 
 
