@@ -1,4 +1,4 @@
-# Pre-build (for - ARM corss complie)
+# CMAKE Pre-build (for - ARM corss complie)
 
 on ubuntu linux:
 
@@ -11,6 +11,7 @@ on ubuntu linux:
 		$ cmake ../ -DARM=1 -DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc -DCMAKE_CXX_COMPILER=arm-linux-gnueabihf-g++
 		$ make
 
+# Makefile
 # Eclipse Paho MQTT C client
 
 
