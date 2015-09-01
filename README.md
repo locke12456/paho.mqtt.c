@@ -1,4 +1,4 @@
-# CMAKE Pre-build (for - ARM corss complie)
+# CMAKE Pre-build (for - ARM corss compile)
 
 on ubuntu linux:
 
