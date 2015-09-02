@@ -3,8 +3,8 @@ project(paho-mqtt)
 
 set(srcdir ${CMAKE_SOURCE_DIR}/src)
 SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${RELEASE_DIR}")
-SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS}  -R -Wl,--dynamic-linker=/usr/arm-linux-gnueabihf/lib/ -ldl " )
-SET( CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} -R -Wl,--dynamic-linker=/usr/arm-linux-gnueabihf/lib/ -ldl " )
+#SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS}  -R -Wl,--dynamic-linker=/usr/arm-linux-gnueabihf/lib/ -ldl " )
+#SET( CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} -R -Wl,--dynamic-linker=/usr/arm-linux-gnueabihf/lib/ -ldl " )
 file(GLOB_RECURSE SOURCE_FILES
 	${srcdir}/Clients.c
 	${srcdir}/Heap.c
