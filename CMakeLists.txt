@@ -7,7 +7,7 @@ project(paho-mqtt)
 #set(CMAKE_BUILD_TYPE Debug)
 #SET(BUILD_STATIC)
 
-include(toolchain-arm-linux-gnueabi.cmake)
+#include(toolchain-arm-linux-gnueabi.cmake)
 
 INCLUDE(os_env.cmake)
 

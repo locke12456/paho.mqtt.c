@@ -46,6 +46,9 @@ endif()
 
 
 if(UNIX)
+    target_link_libraries(paho-mqtt3a pthread)
+    target_link_libraries(paho-mqtt3a dl)
+
     target_link_libraries(paho-mqtt3a ssl)
     target_link_libraries(paho-mqtt3a crypto)
 endif(UNIX)

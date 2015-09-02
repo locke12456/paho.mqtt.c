@@ -3,6 +3,8 @@ project(paho-mqtt)
 
 set(srcdir ${CMAKE_SOURCE_DIR}/src)
 SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${RELEASE_DIR}")
+SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS}  -R -Wl,--dynamic-linker=/usr/arm-linux-gnueabihf/lib/ -ldl " )
+SET( CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} -R -Wl,--dynamic-linker=/usr/arm-linux-gnueabihf/lib/ -ldl " )
 file(GLOB_RECURSE SOURCE_FILES
 	${srcdir}/Clients.c
 	${srcdir}/Heap.c
@@ -39,9 +41,12 @@ ELSE()
 		${SOURCE_FILES}
 		${SOURCE_FILES_C}
 	)
+
 endif()
 
 if(UNIX)
+    target_link_libraries(paho-mqtt3c pthread)
+    target_link_libraries(paho-mqtt3c dl)
     target_link_libraries(paho-mqtt3c ssl)
     target_link_libraries(paho-mqtt3c crypto)
 endif(UNIX)
